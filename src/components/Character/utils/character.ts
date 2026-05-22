@@ -1,6 +1,7 @@
 import * as THREE from "three";
-import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
+import { GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
+import { fitCharacterToScene } from "./fitModel";
 
 const MODEL_PATH = "/models/character.glb";
 
@@ -10,9 +11,6 @@ const setCharacter = (
   camera: THREE.PerspectiveCamera
 ) => {
   const loader = new GLTFLoader();
-  const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath("/draco/");
-  loader.setDRACOLoader(dracoLoader);
 
   const loadCharacter = () => {
     return new Promise<GLTF | null>((resolve, reject) => {
@@ -20,8 +18,7 @@ const setCharacter = (
         MODEL_PATH,
         async (gltf) => {
           const character = gltf.scene;
-          character.scale.set(0.012, 0.012, 0.012);
-          character.position.set(0, -1.2, 0);
+          fitCharacterToScene(character, 14);
 
           await renderer.compileAsync(character, camera, scene);
           character.traverse((child) => {
@@ -30,16 +27,11 @@ const setCharacter = (
               mesh.castShadow = false;
               mesh.receiveShadow = false;
               mesh.frustumCulled = true;
-              if (mesh.material && !Array.isArray(mesh.material)) {
-                const mat = mesh.material as THREE.Material & { precision?: string };
-                if ("precision" in mat) mat.precision = "mediump";
-              }
             }
           });
 
           setCharTimeline(character, camera);
           setAllTimeline();
-          dracoLoader.dispose();
           resolve(gltf);
         },
         undefined,

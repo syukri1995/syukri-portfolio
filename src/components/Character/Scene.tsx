@@ -40,7 +40,7 @@ const Scene = () => {
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
-      camera.position.set(0, 8, 18);
+      camera.position.set(0, 13.1, 24.7);
       camera.zoom = 1.1;
       camera.updateProjectionMatrix();
 
@@ -54,8 +54,10 @@ const Scene = () => {
       const progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
-      loadCharacter().then((gltf) => {
-        if (gltf) {
+      loadCharacter()
+        .then((gltf) => {
+          if (!gltf) return;
+
           const animations = setAnimations(gltf);
           if (hoverDivRef.current) {
             animations.hover(gltf, hoverDivRef.current);
@@ -66,17 +68,27 @@ const Scene = () => {
           scene.add(characterModel);
           headBone = findHeadBone(characterModel);
           screenLight = findScreenLight(characterModel);
+
+          canvasDiv.current?.parentElement?.classList.add("character-loaded");
+
           progress.loaded().then(() => {
             setTimeout(() => {
               light.turnOnLights();
               animations.startIntro();
             }, 1500);
           });
+
           window.addEventListener("resize", () =>
             handleResize(renderer, camera, canvasDiv, characterModel)
           );
-        }
-      });
+        })
+        .catch((err) => {
+          console.error("Character failed to load:", err);
+          progress.clear?.();
+          progress.loaded().then(() => {
+            setLoading(100);
+          });
+        });
 
       let mouse = { x: 0, y: 0 },
         interpolation = { x: 0.1, y: 0.2 };
