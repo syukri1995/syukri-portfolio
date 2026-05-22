@@ -40,21 +40,11 @@
     height: auto !important;
   }
 
-  .landing-intro h1 {
-    word-spacing: 0.1em;
-    font-size: 32px !important;
-    /* Ensure nice size */
-    line-height: 1.2 !important;
-    margin: 0;
-  }
-
-  /* Ensure name parts display correctly */
-  .landing-intro h1 br {
-    display: block;
-    /* Keep break on mobile for 2 lines, or use display:none for 1 line */
-    content: " ";
-    /* Fallback */
-    margin-bottom: 5px;
+  .landing-name {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    text-align: center;
+    align-items: center;
   }
 
   /* Subtitles Container */
@@ -83,11 +73,6 @@
     /* Third: Subtitles */
   }
 
-  .landing-info h3 {
-    text-align: center;
-    display: none;
-    /* Hide 'An' if not needed, or keep it static */
-  }
 
   /* Force static positioning to prevent overlaps */
   .landing-info h2,
@@ -144,7 +129,7 @@
     width: 100%;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(194, 164, 255, 0.4));
+    filter: drop-shadow(0 0 40px var(--accentGlow));
   }
 }
 
@@ -171,8 +156,8 @@
   position: fixed;
   width: 300px;
   height: 300px;
-  background-color: #fb8dff;
-  box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+  background-color: var(--accentSoft);
+  box-shadow: inset -50px 40px 50px rgba(var(--accentRgb), 0.45);
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
@@ -211,8 +196,8 @@
   display: none;
   width: 300px;
   height: 300px;
-  background-color: #fb8dff;
-  box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+  background-color: var(--accentSoft);
+  box-shadow: inset -50px 40px 50px rgba(var(--accentRgb), 0.45);
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
@@ -342,13 +327,24 @@
   letter-spacing: 2px;
 }
 
-.landing-intro h1 {
+.landing-name {
   margin: 0;
-  letter-spacing: 2px;
-  font-size: 28px;
-  line-height: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  letter-spacing: 0.08em;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.landing-name-line {
+  display: block;
+}
+
+.landing-name-accent {
+  color: var(--accentSoft);
   font-weight: 500;
-  font-family: "Geist", sans-serif;
 }
 
 /* .landing-intro h1 span {
@@ -364,19 +360,20 @@
   z-index: 9;
 }
 
-.landing-info h3 {
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-weight: 300;
-  color: var(--accentColor);
+.landing-info-sub {
   margin: 0;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.06em;
 }
 
-.landing-info h2 {
+.landing-info h2,
+.landing-info-sub {
   margin: 0;
   margin-top: -20px;
   margin-left: 20px;
-  font-family: "Geist", sans-serif;
+  font-family: inherit;
   font-weight: 600;
   font-size: 28px;
   line-height: 40px;
@@ -399,11 +396,11 @@
 }
 
 h2.landing-info-h2 {
-  color: #c481ff;
-  font-size: 36px;
+  color: var(--accentColor);
+  font-size: clamp(28px, 3vw, 36px);
   width: 150%;
   margin: 0;
-  font-family: "Geist", sans-serif;
+  font-family: inherit;
   font-weight: 600;
   position: relative;
   margin-left: -5px;

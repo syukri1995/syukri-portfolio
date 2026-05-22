@@ -34,16 +34,14 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      <div className="container-main">
-        <Landing>{showCharacter ? children : null}</Landing>
-        <About />
-        <WhatIDo />
-        <Career />
-        <Work />
-        <TechStackNew />
-        <CallToAction />
-        <Contact />
-      </div>
+      <Landing>{showCharacter ? children : null}</Landing>
+      <About />
+      <WhatIDo />
+      <Career />
+      <Work />
+      <TechStackNew />
+      <CallToAction />
+      <Contact />
     </div>
   );
 };

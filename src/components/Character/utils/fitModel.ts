@@ -3,7 +3,7 @@ import * as THREE from "three";
 /** Scale and position a GLB so it fills the landing viewport like the original portfolio rig. */
 export function fitCharacterToScene(
   root: THREE.Object3D,
-  targetHeight = 14
+  targetHeight = 16
 ): void {
   root.updateMatrixWorld(true);
 
