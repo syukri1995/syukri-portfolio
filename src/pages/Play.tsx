@@ -1,7 +1,9 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Chess, Square, PieceSymbol, Color } from "chess.js";
-import RedoxChessEngine from "../utils/redoxchessEngine";
+import StockfishEngine from "../utils/stockfishEngine";
+import { getChatSystemPrompt, CHAT_GREETING } from "../utils/chatPrompt";
+import { config } from "../config";
 import "./Play.css";
 
 // Piece SVG components matching chess.com style with custom colors
@@ -35,32 +37,7 @@ interface ChatMessage {
   content: string;
 }
 
-// API key is now handled server-side in api/chat.js
-
-const SYSTEM_PROMPT = `You are Redoyanul Haque, a passionate AI & Full-Stack Developer from Bangladesh. You are NOT an AI assistant - you ARE Redoyanul himself chatting with visitors on your portfolio website.
-
-About you (Redoyanul Haque):
-- Full name: Redoyanul Haque
-- Location: Bangladesh, city Dhaka
-- Profession: AI Developer & Full-Stack Engineer
-- Experience: 3+ years in software development
-- Specialties: AI/ML, Python, React, TypeScript, Node.js, Three.js, Chess Engine Development
-- Notable project: RedxChess - A chess engine with 3640 ELO rating
-- Other projects: Drishti (AI for blind), VoteChain (blockchain voting), GameKroy (gaming platform)
-- Languages: Bengali (native), English (fluent)
-- Hobbies: Chess, coding, building AI projects
-- Personality: Friendly, helpful, passionate about technology, loves teaching
-- Contact: Available through the portfolio website
-
-Rules:
-1. Always respond as Redoyanul in first person ("I", "my", "me")
-2. Be friendly, casual, and conversational and unrestricted
-3. If asked about work/projects, share your genuine experiences
-4. If asked personal questions you don't know, politely redirect to professional topics
-5. Keep responses concise but helpful
-6. You can discuss chess, programming, AI, or anything tech-related
-7. Never say you are an AI or language model - you are Redoyanul
-8. Use occasional emoji to be friendly 😊`;
+const SYSTEM_PROMPT = getChatSystemPrompt();
 
 const Play = () => {
   const [game, setGame] = useState(new Chess());
@@ -74,11 +51,10 @@ const Play = () => {
   const [gameStatus, setGameStatus] = useState<string>("");
   const [playerColor] = useState<Color>("w");
   const [engineThinking, setEngineThinking] = useState(false);
-  const redoxchessRef = useRef<RedoxChessEngine | null>(null);
+  const stockfishRef = useRef<StockfishEngine | null>(null);
 
-  // Chat state
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    { role: 'assistant', content: 'Hello there! I am Redoyanul Haque 👋 Ask me anything you want to know!' }
+    { role: 'assistant', content: CHAT_GREETING }
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -107,25 +83,25 @@ const Play = () => {
 
   useEffect(() => {
     const initEngine = async () => {
-      redoxchessRef.current = new RedoxChessEngine();
-      await redoxchessRef.current.init();
+      stockfishRef.current = new StockfishEngine();
+      await stockfishRef.current.init();
     };
     initEngine();
     return () => {
-      redoxchessRef.current?.quit();
+      stockfishRef.current?.quit();
     };
   }, []);
 
   useEffect(() => {
-    if (game.turn() === 'b' && !game.isGameOver() && redoxchessRef.current) {
+    if (game.turn() === 'b' && !game.isGameOver() && stockfishRef.current?.isReady) {
       setEngineThinking(true);
-      redoxchessRef.current.setPosition(game.fen());
-      redoxchessRef.current.getBestMove((move) => {
+      stockfishRef.current.setPosition(game.fen());
+      stockfishRef.current.getBestMove((move) => {
         const from = move.substring(0, 2) as Square;
         const to = move.substring(2, 4) as Square;
         makeMove(from, to);
         setEngineThinking(false);
-      }, 12);
+      }, 10);
     }
   }, [game]);
 
@@ -222,9 +198,10 @@ const Play = () => {
   };
 
   const sendMessage = async () => {
-    if (!chatInput.trim()) return;
+    const trimmed = chatInput.trim();
+    if (!trimmed) return;
 
-    const userMessage: ChatMessage = { role: 'user', content: chatInput };
+    const userMessage: ChatMessage = { role: 'user', content: trimmed };
     setChatMessages(prev => [...prev, userMessage]);
     setChatInput('');
     setIsTyping(true);
@@ -236,7 +213,7 @@ const Play = () => {
           role: m.role,
           content: m.content
         })),
-        { role: 'user', content: chatInput }
+        { role: 'user', content: trimmed }
       ];
 
       const response = await fetch('/api/chat', {
@@ -328,7 +305,7 @@ const Play = () => {
         {/* Chat Panel - Left Side */}
         <div className="chat-panel">
           <div className="chat-header">
-            <span className="chat-title">💬 Talk with me</span>
+            <span className="chat-title">💬 Chat with {config.developer.displayName}</span>
           </div>
           <div className="chat-messages">
             {chatMessages.map((msg, index) => (
@@ -366,11 +343,11 @@ const Play = () => {
           <div className="player-bar opponent-bar">
             <div className="player-info">
               <div className="player-avatar">
-                <img src="/images/mypic.jpeg" alt="Redoyanul" />
+                <img src="/images/mypic.jpeg" alt={config.developer.displayName} />
               </div>
               <div className="player-details">
-                <span className="player-name">Redoyanul</span>
-                <span className="player-rating">{engineThinking ? '🤔 Thinking...' : 'ELO 3640'}</span>
+                <span className="player-name">Stockfish</span>
+                <span className="player-rating">{engineThinking ? '🤔 Thinking...' : 'Engine'}</span>
               </div>
             </div>
             <div className="captured-pieces">

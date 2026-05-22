@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
-import { decryptFile } from "./decrypt";
+
+const MODEL_PATH = "/models/character.glb";
 
 const setCharacter = (
   renderer: THREE.WebGLRenderer,
@@ -14,48 +15,39 @@ const setCharacter = (
   loader.setDRACOLoader(dracoLoader);
 
   const loadCharacter = () => {
-    return new Promise<GLTF | null>(async (resolve, reject) => {
-      try {
-        const encryptedBlob = await decryptFile(
-          "/models/character.enc",
-          "Character3D#@"
-        );
-        const blobUrl = URL.createObjectURL(new Blob([encryptedBlob]));
+    return new Promise<GLTF | null>((resolve, reject) => {
+      loader.load(
+        MODEL_PATH,
+        async (gltf) => {
+          const character = gltf.scene;
+          character.scale.set(0.012, 0.012, 0.012);
+          character.position.set(0, -1.2, 0);
 
-        let character: THREE.Object3D;
-        loader.load(
-          blobUrl,
-          async (gltf) => {
-            character = gltf.scene;
-            await renderer.compileAsync(character, camera, scene);
-            character.traverse((child: any) => {
-              if (child.isMesh) {
-                const mesh = child as THREE.Mesh;
-                child.castShadow = false;
-                child.receiveShadow = false;
-                mesh.frustumCulled = true;
-                if (mesh.material && !Array.isArray(mesh.material)) {
-                  (mesh.material as THREE.ShaderMaterial).precision = 'mediump';
-                }
+          await renderer.compileAsync(character, camera, scene);
+          character.traverse((child) => {
+            if ((child as THREE.Mesh).isMesh) {
+              const mesh = child as THREE.Mesh;
+              mesh.castShadow = false;
+              mesh.receiveShadow = false;
+              mesh.frustumCulled = true;
+              if (mesh.material && !Array.isArray(mesh.material)) {
+                const mat = mesh.material as THREE.Material & { precision?: string };
+                if ("precision" in mat) mat.precision = "mediump";
               }
-            });
-            resolve(gltf);
-            setCharTimeline(character, camera);
-            setAllTimeline();
-            character!.getObjectByName("footR")!.position.y = 3.36;
-            character!.getObjectByName("footL")!.position.y = 3.36;
-            dracoLoader.dispose();
-          },
-          undefined,
-          (error) => {
-            console.error("Error loading GLTF model:", error);
-            reject(error);
-          }
-        );
-      } catch (err) {
-        reject(err);
-        console.error(err);
-      }
+            }
+          });
+
+          setCharTimeline(character, camera);
+          setAllTimeline();
+          dracoLoader.dispose();
+          resolve(gltf);
+        },
+        undefined,
+        (error) => {
+          console.error("Error loading GLTF model:", error);
+          reject(error);
+        }
+      );
     });
   };
 

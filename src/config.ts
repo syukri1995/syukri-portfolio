@@ -1,193 +1,204 @@
 export const config = {
-    developer: {
-        name: "Redoyanul",
-        fullName: "Redoyanul Haque",
-        title: "AI & Full-Stack Developer",
-        description: "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
+  developer: {
+    name: "Syukri",
+    fullName: "Nik Muhammad Syukri Bin Shamsudin",
+    displayName: "Syukri Shamsudin",
+    title: "Computer Science Student",
+    taglines: ["CS Student", "Builder & Problem Solver"],
+    description:
+      "Computer Science student at UiTM (distance learning) based in Kuala Lumpur, Malaysia. I build practical systems with clear logic—from C++ foundations to web apps, IoT, and AI-powered automation.",
+  },
+  social: {
+    location: "Kuala Lumpur, Malaysia",
+    phone: "013-851 3490",
+    phoneTel: "+60138513490",
+  },
+  about: {
+    title: "About Me",
+    description:
+      "I am a Computer Science student at UiTM Shah Alam (distance learning, since 2023), with a Diploma in Information Management (IM110) from UiTM Machang (2018). I focus on simple, practical solutions—file handling, APIs, automation, and systems that work in the real world. I completed the AI & Machine Learning Bootcamp (Yayasan Peneraju) and enjoy agentic AI, smart routing (like SISPAA), and turning ideas into usable software. I am introverted and always improving how I communicate; I prefer concise explanations and building things that ship.",
+  },
+  education: [
+    {
+      degree: "Bachelor of Computer Science",
+      institution: "UiTM Shah Alam",
+      mode: "Distance Learning",
+      period: "2023 – Present",
+      status: "Ongoing",
     },
-    social: {
-        github: "red1-for-hek",
-        email: "redoyanul1234@gmail.com",
-        location: "Bangladesh"
+    {
+      degree: "Diploma in Information Management (IM110)",
+      institution: "UiTM Machang",
+      period: "Completed 2018",
+      status: "Graduated",
     },
-    about: {
-        title: "About Me",
-        description: "I am a self-taught AI & Full-Stack Developer from Bangladesh. I build intelligent systems, chatbots, and modern web applications. My expertise includes Machine Learning, Deep Learning, NLP, and Full-Stack Web Development with React, Node.js, and Python. Currently building next-gen AI Agents and JARVIS-like Personal Assistants. I have a competitive programming mindset and a deep passion for automation. Code is poetry, AI is the canvas."
+  ],
+  certifications: [
+    {
+      name: "AI & Machine Learning Bootcamp",
+      organizer: "Yayasan Peneraju",
     },
-    experiences: [
-        {
-            position: "Learning Something New",
-            company: "Self-Development",
-            period: "2025 - Present",
-            location: "Bangladesh",
-            description: "Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what's possible in tech.",
-            responsibilities: [
-                "Researching cutting-edge AI and ML technologies",
-                "Experimenting with new frameworks and tools",
-                "Contributing to open-source projects",
-                "Building innovative personal projects"
-            ],
-            technologies: ["Research", "Innovation", "Open Source", "New Tech"]
-        },
-        {
-            position: "AI Engineer",
-            company: "Freelance & Projects",
-            period: "2025",
-            location: "Bangladesh",
-            description: "Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.",
-            responsibilities: [
-                "Building AI-powered chatbots and conversational agents",
-                "Developing machine learning models with TensorFlow and PyTorch",
-                "Working with LLMs and transformer architectures",
-                "Creating autonomous AI systems and automation tools"
-            ],
-            technologies: ["Python", "TensorFlow", "PyTorch", "LLMs", "NLP", "AI Agents"]
-        },
-        {
-            position: "Full-Stack Developer",
-            company: "Freelance & Projects",
-            period: "2024",
-            location: "Bangladesh",
-            description: "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.",
-            responsibilities: [
-                "Developing full-stack web applications using React and Node.js",
-                "Building RESTful APIs and integrating databases",
-                "Creating responsive and interactive user interfaces",
-                "Deploying and maintaining web applications"
-            ],
-            technologies: ["React", "Node.js", "MongoDB", "Express", "Next.js", "TypeScript"]
-        },
-        {
-            position: "Python Developer",
-            company: "Self-Taught & Projects",
-            period: "2023",
-            location: "Bangladesh",
-            description: "Dove deep into Python programming, building automation scripts, bots, and mastering the fundamentals of software development and problem-solving.",
-            responsibilities: [
-                "Learning Python programming and core concepts",
-                "Building automation scripts and Discord bots",
-                "Exploring data structures and algorithms",
-                "Participating in competitive programming"
-            ],
-            technologies: ["Python", "Automation", "Scripting", "Discord.py", "Problem Solving"]
-        },
-        {
-            position: "Graphic Designer",
-            company: "Freelance",
-            period: "2022",
-            location: "Bangladesh",
-            description: "Started my creative journey as a graphic designer, creating logos, banners, and visual content. This sparked my passion for technology and digital creation.",
-            responsibilities: [
-                "Designing logos and brand identity materials",
-                "Creating social media graphics and banners",
-                "Working with clients on creative projects",
-                "Learning design principles and visual aesthetics"
-            ],
-            technologies: ["Photoshop", "Illustrator", "Canva", "Figma", "Visual Design"]
-        },
-        {
-            position: "Microsoft Office",
-            company: "Begin Learning",
-            period: "2021",
-            location: "Bangladesh",
-            description: "Started my journey into the digital world by learning Microsoft Office tools. This foundational step introduced me to computers and sparked my curiosity for technology.",
-            responsibilities: [
-                "Learning Microsoft Word, Excel, and PowerPoint",
-                "Creating documents and presentations",
-                "Understanding basic computer operations",
-                "Building foundational digital skills"
-            ],
-            technologies: ["MS Word", "MS Excel", "MS PowerPoint", "Computer Basics"]
-        }
-    ],
-    projects: [
-        {
-            id: 1,
-            title: "Drishti",
-            category: "AI / LLM",
-            technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB",
-            image: "/images/drishti.png",
-            description: "Bangladesh's first intelligent advanced AI chatbot powered by a custom Large Language Model. Features natural language understanding, contextual conversations, and multilingual support including Bengali."
-        },
-        {
-            id: 2,
-            title: "VoteChain",
-            category: "Blockchain",
-            technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js",
-            image: "/images/votechain.png",
-            description: "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking."
-        },
-        {
-            id: 3,
-            title: "EIE - Earthquake Impact Estimator",
-            category: "IoT / Hardware",
-            technologies: "Arduino, C++, IoT Sensors, Python, ML, React",
-            image: "/images/eie.png",
-            description: "A practical circuit-based IoT system utilizing Arduino to predict earthquakes before they strike. Integrates hardware sensors for real-time seismic detection and impact estimation."
-        },
-        {
-            id: 4,
-            title: "GameKroy",
-            category: "Full Stack",
-            technologies: "React, Node.js, MongoDB, Express, Stripe, TailwindCSS",
-            image: "/images/gamekroy.png",
-            description: "A full-featured e-commerce platform for gaming products. Includes user authentication, product catalog, shopping cart, secure payments, order tracking, and admin dashboard."
-        },
-        {
-            id: 5,
-            title: "RedxChess",
-            category: "AI / Game Engine",
-            technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol",
-            image: "/images/redxchess.png",
-            description: "A high-performance chess engine rated 3640 ELO. Features advanced search algorithms, neural network evaluation, and optimized bitboard representation for lightning-fast move generation."
-        },
-        {
-            id: 6,
-            title: "Floodhub",
-            category: "AI / ML",
-            technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS",
-            image: "/images/floodhub.png",
-            description: "A flood prediction model specifically designed for Bangladesh's river systems. Analyzes weather patterns, water levels, and historical data to provide accurate flood forecasts and alerts."
-        },
-        {
-            id: 7,
-            title: "Phoenix",
-            category: "AI Assistant",
-            technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter",
-            image: "/images/phoenix.png",
-            description: "A JARVIS-inspired personal AI desktop assistant. Controls system functions, manages tasks, answers queries, automates workflows, and provides voice-activated computing experience."
-        },
-        {
-            id: 8,
-            title: "HekTools",
-            category: "Security / Android",
-            technologies: "Kotlin, Android SDK, Firebase, Python, Encryption",
-            image: "/images/hektools.png",
-            description: "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes."
-        }
-    ],
-    contact: {
-        email: "redoyanul1234@gmail.com",
-        github: "https://github.com/red1-for-hek",
-        linkedin: "https://linkedin.com/in/red1-for-hek",
-        twitter: "https://x.com/red_1_ul",
-        facebook: "https://www.facebook.com/redoyanulhaque.hacker.official",
-        instagram: "https://www.instagram.com/red_1_ul"
+  ],
+  experiences: [
+    {
+      position: "IT & Multimedia",
+      company: "MAIK",
+      period: "Experience",
+      location: "Malaysia",
+      description:
+        "Managed IT-related tasks and multimedia work with exposure to system handling, digital tools, and technical operations.",
+      responsibilities: [
+        "Handled IT support and multimedia production tasks",
+        "Worked with digital tools and system workflows",
+        "Assisted technical and media-related operations",
+      ],
+      technologies: ["IT Support", "Multimedia", "Digital Tools"],
     },
-    skills: {
-        develop: {
-            title: "AI DEVELOPER",
-            description: "Building intelligent systems & AI solutions",
-            details: "Developing AI agents, chatbots, and machine learning models using Python, TensorFlow, and PyTorch. Specializing in LLMs, NLP, deep learning, and autonomous systems.",
-            tools: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "LLMs", "NLP", "Deep Learning", "Chatbots", "AI Agents"]
-        },
-        design: {
-            title: "FULL-STACK",
-            description: "Modern web development & scalable applications",
-            details: "Building responsive and performant web applications using React, Next.js, Node.js, and databases. Creating seamless user experiences with modern UI/UX principles.",
-            tools: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "PostgreSQL", "TailwindCSS", "REST APIs", "Docker", "Git"]
-        }
-    }
+    {
+      position: "Computer Science Student",
+      company: "UiTM Shah Alam",
+      period: "2023 – Present",
+      location: "Malaysia (Distance Learning)",
+      description:
+        "Pursuing a Bachelor of Computer Science while building portfolio projects in web, AI, and IoT.",
+      responsibilities: [
+        "Studying software engineering and computer science fundamentals",
+        "Building capstone-style projects (SISPAA, Flask apps, IoT)",
+        "Practicing system design and automation concepts",
+      ],
+      technologies: ["C++", "Python", "Web Development", "AI/ML"],
+    },
+    {
+      position: "Diploma in Information Management",
+      company: "UiTM Machang",
+      period: "2018",
+      location: "Malaysia",
+      description:
+        "Foundation in information management and digital systems before specializing in computer science.",
+      responsibilities: [
+        "Information systems and management coursework",
+        "Database and organizational technology exposure",
+      ],
+      technologies: ["Information Systems", "Databases"],
+    },
+  ],
+  projects: [
+    {
+      id: 1,
+      title: "SISPAA Intelligent GovTech Router",
+      category: "AI / GovTech",
+      technologies: "Python, Groq API, LLM, TiDB, Automation",
+      image: "/images/placeholder.webp",
+      description:
+        "AI-powered complaint routing for government digital transformation. Auto-classifies complaints, routes to departments, and supports worker assignment automation using LLM (Groq) and TiDB.",
+    },
+    {
+      id: 2,
+      title: "Drag-and-Drop Report Builder",
+      category: "Concept / Automation",
+      technologies: "Web UI, Document Processing, APIs",
+      image: "/images/placeholder.webp",
+      description:
+        "Concept for generating reports via drag-and-drop: scan documents, auto-structure data, and focus on usability plus automation for non-technical users.",
+    },
+    {
+      id: 3,
+      title: "Flask Image Gallery Viewer",
+      category: "Web",
+      technologies: "Python, Flask, HTML, CSS",
+      image: "/images/placeholder.webp",
+      description:
+        "Web-based image gallery optimized for fast loading and performance—practical file handling and efficient delivery.",
+    },
+    {
+      id: 4,
+      title: "Shelf Scanning App",
+      category: "Startup Idea / Retail",
+      technologies: "Computer Vision, Mobile, Database Sync",
+      image: "/images/placeholder.webp",
+      description:
+        "Scan store shelves to detect product availability and sync with shop inventory—a real-world retail automation concept.",
+    },
+    {
+      id: 5,
+      title: "Social Media Prototype",
+      category: "University Project",
+      technologies: "Web, MVP Development",
+      image: "/images/placeholder.webp",
+      description:
+        "Basic social platform MVP built as a university project—focused on core features and iterative development.",
+    },
+    {
+      id: 6,
+      title: "IoT Automation Projects",
+      category: "IoT / Hardware",
+      technologies: "ESP32, Arduino, Sensors",
+      image: "/images/placeholder.webp",
+      description:
+        "ESP32 and Arduino sensor projects combining hardware with software for monitoring and automation.",
+    },
+    {
+      id: 7,
+      title: "3D Printing Service",
+      category: "Side Project",
+      technologies: "3D Printing, CAD, MYR Pricing",
+      image: "/images/placeholder.webp",
+      description:
+        "Side income project offering custom 3D prints for clients with practical pricing in Malaysian Ringgit.",
+    },
+  ],
+  contact: {
+    linkedin: "https://www.linkedin.com/in/syukri-shamsudin-361201172",
+    phone: "013-851 3490",
+    phoneTel: "+60138513490",
+    email: "",
+    github: "",
+    twitter: "",
+    facebook: "",
+    instagram: "",
+  },
+  skills: {
+    programming: {
+      title: "PROGRAMMING",
+      description: "Strong foundations & logic",
+      details:
+        "C++ with solid fundamentals—file handling, logic building, and system-oriented thinking for reliable software.",
+      tools: ["C++", "Logic & Algorithms", "File Handling", "System Basics"],
+    },
+    web: {
+      title: "WEB & SOFTWARE",
+      description: "Web systems & APIs",
+      details:
+        "Flask projects, beginner web architecture, API design concepts, and exploring scalable backends beyond quick UI tools.",
+      tools: ["Flask", "HTML/CSS/JS", "REST APIs", "Web Architecture"],
+    },
+    ai: {
+      title: "AI / DATA",
+      description: "ML bootcamp & agentic AI",
+      details:
+        "Yayasan Peneraju AI/ML bootcamp. Interested in agentic systems, automation workflows, and smart routing (SISPAA).",
+      tools: ["Python", "LLMs", "Groq API", "Automation", "TiDB"],
+    },
+    tools: {
+      title: "TOOLS & TECH",
+      description: "Dev & hardware toolkit",
+      details:
+        "Daily tools for coding, networking labs, IoT prototypes, and version control.",
+      tools: ["VS Code", "Cisco", "ESP32/Arduino", "Git & GitHub"],
+    },
+    creative: {
+      title: "CREATIVE",
+      description: "Design & visual thinking",
+      details:
+        "Graphic design, UI thinking, and content ideas blending C++ education with visuals.",
+      tools: ["Graphic Design", "UI Thinking", "Visual Content"],
+    },
+  },
+  interests: [
+    "Strategy games",
+    "System design & automation",
+    "AI-powered applications",
+    "Startup ideas",
+    "Visually appealing software",
+  ],
 };
-
-

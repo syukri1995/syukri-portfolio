@@ -4,8 +4,9 @@ import { config } from "../config";
 
 const Landing = ({ children }: PropsWithChildren) => {
   const nameParts = config.developer.fullName.split(" ");
-  const firstName = nameParts[0] || config.developer.name;
-  const lastName = nameParts.slice(1).join(" ") || "";
+  const firstName = nameParts.slice(0, 2).join(" ") || config.developer.name;
+  const lastName = nameParts.slice(2).join(" ") || "";
+  const taglines = config.developer.taglines ?? [config.developer.title];
 
   return (
     <>
@@ -15,23 +16,33 @@ const Landing = ({ children }: PropsWithChildren) => {
             <h2>Hello! I'm</h2>
             <h1>
               {firstName.toUpperCase()}
-              {' '}
-              <br />
-              {lastName && <span>{lastName.toUpperCase()}</span>}
+              {lastName && (
+                <>
+                  <br />
+                  <span>{lastName.toUpperCase()}</span>
+                </>
+              )}
             </h1>
           </div>
           <div className="landing-info">
             <h3>An</h3>
             <h2 className="landing-info-h2">
-              <div className="landing-h2-1">AI Engineer</div>
+              <div className="landing-h2-1">{taglines[0]}</div>
             </h2>
-            <h2>
-              <div className="landing-h2-info">Full-Stack Developer</div>
-            </h2>
+            {taglines[1] && (
+              <h2>
+                <div className="landing-h2-info">{taglines[1]}</div>
+              </h2>
+            )}
           </div>
-          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
           <div className="mobile-photo">
-            <img src="/images/mypicnbg.png" alt="Redoyanul Haque" />
+            <img
+              src="/images/mypic.jpeg"
+              alt={config.developer.displayName}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "/images/placeholder.webp";
+              }}
+            />
           </div>
         </div>
         {children}
