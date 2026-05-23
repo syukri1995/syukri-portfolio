@@ -14,7 +14,7 @@ export const config = {
   about: {
     title: "About Me",
     description:
-      "I am a Computer Science student at UiTM Shah Alam (distance learning, since 2023), with a Diploma in Information Management (IM110) from UiTM Machang (2018). I focus on simple, practical solutions—file handling, APIs, automation, and systems that work in the real world. I completed the AI & Machine Learning Bootcamp (Yayasan Peneraju) and enjoy agentic AI, smart routing (like SISPAA), and turning ideas into usable software. I am introverted and always improving how I communicate; I prefer concise explanations and building things that ship.",
+      "I am a Computer Science student at UiTM Shah Alam (distance learning, since 2023), with a Diploma in Information Management (IM110) from UiTM Machang (2018). I focus on simple, practical solutions—file handling, APIs, automation, and systems that work in the real world. I completed the AI & Machine Learning Bootcamp (Yayasan Peneraju) and enjoy agentic AI, smart routing (like SISPAA), and turning ideas into usable software.",
   },
   experiences: [
     {
@@ -46,17 +46,17 @@ export const config = {
       technologies: ["C++", "Python", "Web Development", "AI/ML"],
     },
     {
-      position: "Diploma in Information Management",
-      company: "UiTM Machang",
-      period: "2018",
+      position: "Quality Control Assistant",
+      company: "JST Connector(M) Sdn Bhd",
+      period: "2018 - 2020",
       location: "Malaysia",
       description:
-        "Foundation in information management and digital systems before specializing in computer science.",
+        "I was a quality control assistant at JST Connector(M) Sdn Bhd, where I was responsible for ensuring the quality of the products. I was also responsible for the quality control of the products.",
       responsibilities: [
-        "Information systems and management coursework",
-        "Database and organizational technology exposure",
+          "Ensuring the quality of the products",
+          "Responsible for the quality control of the products",
       ],
-      technologies: ["Information Systems", "Databases"],
+      technologies: ["Quality Control", "Product Inspection"],
     },
   ],
   projects: [
@@ -125,10 +125,11 @@ export const config = {
     },
   ],
   contact: {
+    resume: "/resume.pdf",
     email: "",
     phone: "013-851 3490",
     phoneTel: "+60138513490",
-    github: "#",
+    github: "https://github.com/syukri1995",
     linkedin: "https://www.linkedin.com/in/syukri-shamsudin-361201172",
     twitter: "#",
     facebook: "#",
