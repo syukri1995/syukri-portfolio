@@ -7,17 +7,17 @@ const CallToAction = () => {
     <div className="cta-section">
       <div className="cta-buttons">
         <Link to="/play" className="cta-btn cta-btn-play" data-cursor="disable">
-          Play Chess & Chat →
+          Play With Me →
         </Link>
-
-        <a
-          href={config.contact.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
+        
+        <a 
+          href={config.contact.linkedin} 
+          target="_blank" 
+          rel="noopener noreferrer" 
           className="cta-btn cta-btn-hire"
           data-cursor="disable"
         >
-          Connect on LinkedIn →
+          Hire Me →
         </a>
       </div>
     </div>

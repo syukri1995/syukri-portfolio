@@ -2,43 +2,20 @@ export const config = {
   developer: {
     name: "Syukri",
     fullName: "Nik Muhammad Syukri Bin Shamsudin",
-    displayName: "Syukri Shamsudin",
     title: "Computer Science Student",
-    taglines: ["CS Student", "Builder & Problem Solver"],
     description:
       "Computer Science student at UiTM (distance learning) based in Kuala Lumpur, Malaysia. I build practical systems with clear logic—from C++ foundations to web apps, IoT, and AI-powered automation.",
   },
   social: {
+    github: "",
+    email: "",
     location: "Kuala Lumpur, Malaysia",
-    phone: "013-851 3490",
-    phoneTel: "+60138513490",
   },
   about: {
     title: "About Me",
     description:
       "I am a Computer Science student at UiTM Shah Alam (distance learning, since 2023), with a Diploma in Information Management (IM110) from UiTM Machang (2018). I focus on simple, practical solutions—file handling, APIs, automation, and systems that work in the real world. I completed the AI & Machine Learning Bootcamp (Yayasan Peneraju) and enjoy agentic AI, smart routing (like SISPAA), and turning ideas into usable software. I am introverted and always improving how I communicate; I prefer concise explanations and building things that ship.",
   },
-  education: [
-    {
-      degree: "Bachelor of Computer Science",
-      institution: "UiTM Shah Alam",
-      mode: "Distance Learning",
-      period: "2023 – Present",
-      status: "Ongoing",
-    },
-    {
-      degree: "Diploma in Information Management (IM110)",
-      institution: "UiTM Machang",
-      period: "Completed 2018",
-      status: "Graduated",
-    },
-  ],
-  certifications: [
-    {
-      name: "AI & Machine Learning Bootcamp",
-      organizer: "Yayasan Peneraju",
-    },
-  ],
   experiences: [
     {
       position: "IT & Multimedia",
@@ -88,7 +65,7 @@ export const config = {
       title: "SISPAA Intelligent GovTech Router",
       category: "AI / GovTech",
       technologies: "Python, Groq API, LLM, TiDB, Automation",
-      image: "/images/placeholder.webp",
+      image: "/images/sispaa.png",
       description:
         "AI-powered complaint routing for government digital transformation. Auto-classifies complaints, routes to departments, and supports worker assignment automation using LLM (Groq) and TiDB.",
     },
@@ -148,57 +125,43 @@ export const config = {
     },
   ],
   contact: {
-    linkedin: "https://www.linkedin.com/in/syukri-shamsudin-361201172",
+    email: "",
     phone: "013-851 3490",
     phoneTel: "+60138513490",
-    email: "",
-    github: "",
-    twitter: "",
-    facebook: "",
-    instagram: "",
+    github: "#",
+    linkedin: "https://www.linkedin.com/in/syukri-shamsudin-361201172",
+    twitter: "#",
+    facebook: "#",
+    instagram: "#",
   },
   skills: {
-    programming: {
-      title: "PROGRAMMING",
-      description: "Strong foundations & logic",
+    develop: {
+      title: "PROGRAMMING & WEB",
+      description: "Strong foundations and practical web systems",
       details:
-        "C++ with solid fundamentals—file handling, logic building, and system-oriented thinking for reliable software.",
-      tools: ["C++", "Logic & Algorithms", "File Handling", "System Basics"],
+        "C++ with solid fundamentals—file handling, logic building, and system-oriented thinking. Flask projects, beginner web architecture, API design concepts, and exploring scalable backends.",
+      tools: [
+        "C++",
+        "Logic & Algorithms",
+        "Flask",
+        "HTML/CSS/JS",
+        "REST APIs",
+        "Web Architecture",
+      ],
     },
-    web: {
-      title: "WEB & SOFTWARE",
-      description: "Web systems & APIs",
+    design: {
+      title: "AI, TOOLS & CREATIVE",
+      description: "ML bootcamp, IoT toolkit, and visual thinking",
       details:
-        "Flask projects, beginner web architecture, API design concepts, and exploring scalable backends beyond quick UI tools.",
-      tools: ["Flask", "HTML/CSS/JS", "REST APIs", "Web Architecture"],
-    },
-    ai: {
-      title: "AI / DATA",
-      description: "ML bootcamp & agentic AI",
-      details:
-        "Yayasan Peneraju AI/ML bootcamp. Interested in agentic systems, automation workflows, and smart routing (SISPAA).",
-      tools: ["Python", "LLMs", "Groq API", "Automation", "TiDB"],
-    },
-    tools: {
-      title: "TOOLS & TECH",
-      description: "Dev & hardware toolkit",
-      details:
-        "Daily tools for coding, networking labs, IoT prototypes, and version control.",
-      tools: ["VS Code", "Cisco", "ESP32/Arduino", "Git & GitHub"],
-    },
-    creative: {
-      title: "CREATIVE",
-      description: "Design & visual thinking",
-      details:
-        "Graphic design, UI thinking, and content ideas blending C++ education with visuals.",
-      tools: ["Graphic Design", "UI Thinking", "Visual Content"],
+        "Yayasan Peneraju AI/ML bootcamp with interest in agentic systems and smart routing (SISPAA). Daily dev tools, ESP32/Arduino IoT prototypes, and graphic design with UI thinking.",
+      tools: [
+        "Python",
+        "LLMs",
+        "Groq API",
+        "ESP32/Arduino",
+        "Git & GitHub",
+        "Graphic Design",
+      ],
     },
   },
-  interests: [
-    "Strategy games",
-    "System design & automation",
-    "AI-powered applications",
-    "Startup ideas",
-    "Visually appealing software",
-  ],
 };

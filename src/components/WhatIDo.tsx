@@ -88,14 +88,14 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>{config.skills.programming.title}</h3>
-              <h4>{config.skills.programming.description}</h4>
+              <h3>{config.skills.develop.title}</h3>
+              <h4>{config.skills.develop.description}</h4>
               <p>
-                {config.skills.programming.details}
+                {config.skills.develop.details}
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                {config.skills.programming.tools.map((tool, index) => (
+                {config.skills.develop.tools.map((tool, index) => (
                   <div key={index} className="what-tags">{tool}</div>
                 ))}
               </div>
@@ -121,14 +121,14 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>{config.skills.ai.title}</h3>
-              <h4>{config.skills.ai.description}</h4>
+              <h3>{config.skills.design.title}</h3>
+              <h4>{config.skills.design.description}</h4>
               <p>
-                {config.skills.ai.details}
+                {config.skills.design.details}
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                {config.skills.ai.tools.map((tool, index) => (
+                {config.skills.design.tools.map((tool, index) => (
                   <div key={index} className="what-tags">{tool}</div>
                 ))}
               </div>

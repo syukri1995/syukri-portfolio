@@ -137,13 +137,3 @@ a.contact-social {
     width: calc(100% - 25px);
   }
 }
-
-.contact-attribution {
-  font-size: 0.75rem;
-  opacity: 0.6;
-  margin-top: 0.5rem;
-}
-
-.contact-attribution a:hover {
-  color: var(--accentGold);
-}

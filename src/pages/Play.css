@@ -39,7 +39,7 @@ body:has(.play-page) {
   right: -100px;
   width: 250px;
   height: 250px;
-  background-color: var(--accentColor);
+  background-color: #c2a4ff;
   box-shadow: inset -30px 30px 40px rgba(84, 0, 255, 0.5);
   filter: blur(70px);
   border-radius: 50%;
