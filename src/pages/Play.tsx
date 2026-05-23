@@ -254,6 +254,10 @@ const Play = () => {
 
       const data = await response.json();
 
+      if (!response.ok) {
+        throw new Error(data.error || data.details || `Request failed (${response.status})`);
+      }
+
       if (data.choices && data.choices[0]?.message?.content) {
         const assistantMessage: ChatMessage = {
           role: 'assistant',
@@ -261,13 +265,16 @@ const Play = () => {
         };
         setChatMessages(prev => [...prev, assistantMessage]);
       } else {
-        throw new Error('Invalid response');
+        throw new Error(data.error || 'Invalid response');
       }
     } catch (error) {
       console.error('Chat error:', error);
       const errorMessage: ChatMessage = {
         role: 'assistant',
-        content: 'Sorry, having some connection issues. Try again? 😅'
+        content:
+          error instanceof Error && error.message
+            ? `Sorry, I could not reply: ${error.message}`
+            : 'Sorry, having some connection issues. Try again? 😅',
       };
       setChatMessages(prev => [...prev, errorMessage]);
     } finally {
