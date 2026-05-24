@@ -71,21 +71,21 @@ export const config = {
     },
     {
       id: 2,
-      title: "Drag-and-Drop Report Builder",
-      category: "Concept / Automation",
-      technologies: "Web UI, Document Processing, APIs",
-      image: "/images/placeholder.webp",
+      title: "Scam Shield AI",
+      category: "AI / Scam Detection",
+      technologies: "Web UI, AI, Machine Learning",
+      image: "/images/scamShieldAI.png",
       description:
-        "Concept for generating reports via drag-and-drop: scan documents, auto-structure data, and focus on usability plus automation for non-technical users.",
+        "Scam Shield AI is a web-based platform for scam detection and prevention. It is a platform for individuals and organizations to detect and prevent scams.",
     },
     {
       id: 3,
-      title: "Flask Image Gallery Viewer",
-      category: "Web",
-      technologies: "Python, Flask, HTML, CSS",
-      image: "/images/placeholder.webp",
+      title: "e-sukan",
+      category: "Web / Sports",
+      technologies: "HTML, CSS, JavaScript, PHP, MySQL",
+      image: "/images/esukan.png",
       description:
-        "Web-based image gallery optimized for fast loading and performance—practical file handling and efficient delivery.",
+        "e-sukan is a web-based platform for sports management and administration. It is a platform for sports organizations to manage their sports events, teams, and players.",
     },
     {
       id: 4,

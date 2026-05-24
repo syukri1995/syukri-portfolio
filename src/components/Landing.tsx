@@ -30,7 +30,7 @@ const Landing = ({ children }: PropsWithChildren) => {
             </h2>
           </div>
           <div className="mobile-photo">
-            <img src="/images/mypic.jpeg" alt={config.developer.fullName} />
+            <img src="/images/mypic.png" alt={config.developer.fullName} />
           </div>
         </div>
         {children}
